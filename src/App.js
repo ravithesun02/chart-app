@@ -1,7 +1,5 @@
-import logo from './logo.svg';
-import './App.css';
 import { Card, CardContent, Grid, TextField } from '@material-ui/core';
-import { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { Bar, Pie } from 'react-chartjs-2';
 import {
   Chart as ChartJS,
@@ -31,11 +29,10 @@ function App() {
   const dispatch = useDispatch();
   const state = useSelector(state => state.chartData);
 
-  useEffect(async()=>{
+  useEffect(()=>{
 
   dispatch(getInitialData());
-  console.log(state);
-
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   },[]);
 
 
@@ -109,6 +106,10 @@ function App() {
               </Grid>
             )
           }
+          return(
+            <React.Fragment>
+              </React.Fragment>
+          )
         })
       }
 
